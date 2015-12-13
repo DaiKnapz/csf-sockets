@@ -59,10 +59,9 @@ int main(int argc, const char * argv[])
     char received[BUFFSIZE + 1];
     int nRecieved = 0;
     int continues = 1;
-    nRecieved = (int) read(sockFD, (void *) received, BUFFSIZE);
-    printf("%d\n", nRecieved);
 
     do {
+        nRecieved = (int) read(sockFD, (void *) received, BUFFSIZE);
         if (nRecieved>0) {
             int i;
             received[nRecieved] = '\0';
@@ -74,14 +73,12 @@ int main(int argc, const char * argv[])
             }
         }
         else {
-            fprintf(stderr, "Error: ");
+            fprintf(stderr, "Error: No data recieved\n ");
             break;
         }
-        printf("%s\n", received);
+        printf("%s", received);
     } while(continues);
-
-
-
+    printf("\n");
     close(sockFD);
     return 0;
 }

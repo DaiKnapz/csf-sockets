@@ -4,7 +4,7 @@ project(csf_sockets)
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
 
 set(SOURCE_FILES
-    QuoteClient.c
+    MultiQuoteClient.c
     quotes)
 
 add_executable(csf_sockets ${SOURCE_FILES})
